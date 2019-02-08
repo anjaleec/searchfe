@@ -22,18 +22,24 @@ class Search extends Component {
             })
                 .then(response => {
                     console.log(response);
-                    let searchResults = [];
+                    let searchResults = [], totalResults, totalResultsStartsWithSearchTerm = 0;
                     if (response.data.result && response.data.result.length > 0) {
+                        totalResults = response.data.result.length
                         response.data.result.map((searchitem, i) => {
                             searchResults.push(
                                 <tr key={searchitem}>
                                     <td>{i + 1}</td>
                                     <td>{searchitem}</td>
+                                    <td>{searchitem.length}</td>
                                 </tr>
                             )
+                            searchitem.toLowerCase().startsWith(this.state.searchTermValue.toLowerCase()) ? totalResultsStartsWithSearchTerm++ : console.log("not starting with search term");
                         })
+
                         this.setState({
-                            searchResults
+                            searchResults,
+                            totalResults,
+                            totalResultsStartsWithSearchTerm
                         }, () => {
                             console.log("this.setstate successful");
                         });
@@ -60,18 +66,23 @@ class Search extends Component {
         let searchResult;
         if (this.state.searchResults && this.state.searchResults.length > 0) {
             searchResult = (
-                <div className='searchTable'>
-                    <table className="fixed">
-                        <thead>
-                            <tr>
-                                <th>Sr. No. (Rank)</th>
-                                <th>Result</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.searchResults}
-                        </tbody>
-                    </table>
+                <div>
+                    <div style={{textAlign: "center"}}><span>Total Search Results:  {this.state.totalResults}</span></div>
+                    <div style={{textAlign: "center"}}><span>Total Search Results Starting with Search Term:  {this.state.totalResultsStartsWithSearchTerm}</span></div>
+                    <div className='searchTable'>
+                        <table className="fixed">
+                            <thead>
+                                <tr>
+                                    <th>Sr. No. (Rank)</th>
+                                    <th>Result</th>
+                                    <th>Result Length</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.searchResults}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             )
         } else {

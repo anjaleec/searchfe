@@ -29,6 +29,10 @@
   outline: none;
 }
 
+.submit-btn:hover {
+  background-color: white;
+}
+
 .searchterm-input {
   text-align: center;
   width: 25%;
