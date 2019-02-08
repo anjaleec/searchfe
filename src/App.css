@@ -1,0 +1,71 @@
+
+
+.input-element{
+  margin: 5px;
+}
+
+.field-element {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  text-align: center;
+  color: #34495e;
+  margin-left: 1%;
+}
+
+.submit-btn{
+  width: 10%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 0.5%;
+  margin-right: 5%;
+  height: 35px;
+  color: black;
+  border: 2px solid rgb(73, 161, 196);
+  background-color: rgb(73, 161, 196);
+  border-radius: 24px;
+  padding: 5px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  outline: none;
+}
+
+.searchterm-input {
+  text-align: center;
+  width: 25%;
+  border: none;
+  border-bottom: 2px solid #3498db;
+  outline: none;
+}
+
+.form-element {
+  padding-top: 3%;
+  text-align: center;
+}
+
+.home-header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 140px;
+  width: 100%;
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
+  background-color:  #34495e;
+}
+
+.searchTable {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 10%;
+  width: 80%;
+  height: 30%;
+  font-size: 20px;
+  text-align: center;
+}
+
+table.fixed, th, td {
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid #34495e;
+  padding: 15px;
+}
