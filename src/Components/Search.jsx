@@ -30,6 +30,7 @@ class Search extends Component {
                                 <tr key={searchitem}>
                                     <td>{i + 1}</td>
                                     <td>{searchitem}</td>
+                                    <td>{searchitem.toLowerCase().startsWith(this.state.searchTermValue.toLowerCase()) ? "Yes" : "No"}</td>
                                     <td>{searchitem.length}</td>
                                 </tr>
                             )
@@ -67,14 +68,15 @@ class Search extends Component {
         if (this.state.searchResults && this.state.searchResults.length > 0) {
             searchResult = (
                 <div>
-                    <div style={{textAlign: "center"}}><span>Total Search Results:  {this.state.totalResults}</span></div>
-                    <div style={{textAlign: "center"}}><span>Total Search Results Starting with Search Term:  {this.state.totalResultsStartsWithSearchTerm}</span></div>
+                    <div style={{ textAlign: "center" }}><span>Total Search Results:  {this.state.totalResults}</span></div>
+                    <div style={{ textAlign: "center" }}><span>Total Search Results Starting with Search Term:  {this.state.totalResultsStartsWithSearchTerm}</span></div>
                     <div className='searchTable'>
                         <table className="fixed">
                             <thead>
                                 <tr>
                                     <th>Sr. No. (Rank)</th>
                                     <th>Result</th>
+                                    <th>Result Starts With Search Term?</th>
                                     <th>Result Length</th>
                                 </tr>
                             </thead>
